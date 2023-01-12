@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/ui/1.13.0-rc.3/jquery-ui.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#box").css({
+        "width":"100px","height":"100px","background":"blue"
+        ,"position":"absolute"
+      })
+      //1. 동시동작
+      //animate안에서는 색상변경 안됨
+      $("#btn1").click(function(){
+        $("#box").animate({
+          "width":"200px","height":"200px","opacity":"0.5",
+        "right":"150px","backgroundColor":"red"},3000)
+      })
+      //2연속동작
+      $("#btn2").click(function(){
+        $("#box").animate({
+          "width":"200px","opacity":"0.8"
+        },3000)
+        .animate({
+          "height":"200px","opacity":"0.5"
+        },3000)
+        .animate({
+          "right":"200px","opacity":"0.3"
+        },3000)
+        
+      })
+      //3.애니메이션 함수활용
+      $("#btn3").click(function(){
+        $("#box").animate({
+        "width":"hide",
+        "height":"hide"
+        },3000)
+        .animate({ "width":"show","height":"show"},3000)
+      })
+      //4번
+      $("#btn4").click(function(){
+        $("#box").animate({
+          "width":"toggle",
+          "height":"toggle"
+
+        },3000)
+      })
+  
+
+    })
+
+  </script>
+  <title>jquery animation8</title>
+</head>
+<!--
+  
+-->
+<body>
+  <h2>jquery</h2>
+  <button id="btn1">애니메이션 1</button>&ensp;
+  <button id="btn2">애니메이션 2</button>&ensp;
+  <button id="btn3">애니메이션 3</button>&ensp;
+  <button id="btn4">애니메이션 4</button>&ensp;
+  <hr>
+  <div id="box"></div>
+</body>
+</html>
